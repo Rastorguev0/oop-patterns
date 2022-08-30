@@ -1,6 +1,6 @@
 #pragma once
 /*
-concrete internal specification
+ concrete internal specification
 */
 
 #include "interfaces.h"
@@ -20,7 +20,7 @@ class ConcreteObjectA3 : public IObjectA {};
 class ConcreteObjectB3 : public IObjectB {};
 
 
-// concrete fabric for the first objects family
+// concrete factory for the first objects family
 class ConcreteFactory1 : public IAbstractFactory {
 public:
 
@@ -33,7 +33,7 @@ public:
 
 };
 
-// concrete fabric for the second objects family
+// concrete factory for the second objects family
 class ConcreteFactory2 : public IAbstractFactory {
 public:
 
@@ -46,7 +46,7 @@ public:
 
 };
 
-// concrete fabric for the third objects family
+// concrete factory for the third objects family
 class ConcreteFactory3 : public IAbstractFactory {
 public:
 
@@ -60,6 +60,13 @@ public:
 };
 
 /*
-then we create concrete factory we need
-and provide it to any client as abstract factory
+ then we create concrete factory we need
+ and provide it to client as abstract factory.
+ for example:
 */
+
+int main() {
+    IAbstractFactory* factory = new ConcreteFactory1{};
+    CreateObjects(factory);
+    delete factory;
+}
